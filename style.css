@@ -1,0 +1,449 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body,
+header,
+.container,
+.display,
+button{
+    transition: all .5s ease;
+    animation: aparecer 2s ease;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background: radial-gradient( circle at center,
+        #ffffff 0%,
+        #a1a1a1 45%,
+        #464545 100%
+    );
+}
+.contenedorPrincipal{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+}
+    header{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 10px;
+
+        margin-top: 30px;
+        padding: 20px;
+        width: 100%;
+        min-height: 80px;
+        background-color: black;
+        box-shadow: 0 0 20px white;
+        color: white;
+        font-size: 16px;
+
+        transition: all 0.3s ease;
+    }
+        header:hover{
+            transform: scale(1.03);
+        }
+        .botonesCalculadoras{
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+            .botonesCalculadoras button{
+                padding: 10px;
+                background-color: white;
+                border-radius: 10px;
+                border: none;
+                box-shadow: 0 0 20px white;
+                font-family: "DM Serif Display", serif;
+
+                cursor: pointer;
+                transition: all .3s ease;
+                
+            }
+                .botonesCalculadoras button:hover{
+                    transform: scale(0.90);
+                    background-color: black;
+                    color: white;
+                }
+    .container{
+        position: relative;
+        margin: 20px 20px 50px 20px;   
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: clamp(200px, 90vw, 600px);
+        background-color: rgb(238, 237, 237);
+        box-shadow: 0 0 40px white;
+        border-radius: 30px;
+        overflow: hidden;
+
+        transition: all .4s ease;
+    }
+        .container:hover{ 
+            box-shadow: 
+            0 0 60px white, 
+            0 0 80px white;
+            transform: scale(1.02); 
+        }
+        .container::before{
+        content: "";
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        background: conic-gradient(
+            #000000,
+            #333333,
+            #5a5a5a,
+            #807f7f,
+            #8a8a8a,
+            #d6d6d6
+        );
+        filter: blur(15px);
+        animation: girar 3s linear infinite;
+
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .container::after{
+        content: "";
+        position: absolute;
+        inset: 3px; /* grosor del borde */
+        background: rgb(238, 237, 237);
+        border-radius: 26px;
+        z-index: 1;
+    }
+    /* Mantiene el contenido encima */
+    .container > *{
+        position: relative;
+        z-index: 2;
+    }
+        .headCal{
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+            .headCal p{
+                color: black;
+                font-family: "DM Serif Display", serif;
+                font-size: 25px;
+                font-style: italic;
+
+                transition: all .4s ease;
+            }
+            .imgLogoCal{
+                background-image: url(img/luna.jpg);
+                background-size: contain;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+
+            }
+        .calculadora{
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 90%;
+        }
+            .display{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                width: 100%;
+                height: 90px;
+                padding: 10px 20px;
+
+                border-radius: 15px;
+                box-shadow: 0 0 5px black;
+                background-color: #f0f0f0;
+            }
+
+            #operacion{
+                text-align: right;
+                font-family: "DM Serif Display", serif;
+                font-size: 30px;
+                color: gray;
+                min-height: 25px;
+            }
+
+            #resultado{
+                text-align: right;
+                font-family: "DM Serif Display", serif;
+                font-size: 30px;
+                font-weight: bold;
+            }
+            .display input{
+                padding: 20px;
+                text-align: end;
+                border: none;
+                box-shadow: 0 0 5px black;
+                border-radius: 15px;
+                width: 100%;
+                height: 90px;
+                color: black;
+                font-family: "DM Serif Display", serif;
+                font-size: 40px;
+            }
+            .botones{
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 15px;
+            }
+                .botones button{
+                    border: none;
+                    border-radius: 5px;
+                    height: 60px;
+                    font-size: 20px;
+                    cursor: pointer;
+                    font-family: "DM Serif Display", serif;
+                    font-size: 22px;
+
+                    transition: all 0.3s ease;
+                }
+                    .botones button:active{
+                        transform: scale(0.85);
+                    }
+                    .operador{
+                        color: white;
+                        background-color: gray;
+                        box-shadow: 0 0 10px rgb(190, 190, 190);
+                    }
+                        .operador:hover{
+                            transform: translateY(-4px);
+                            background-color: #3D3D3D;
+                            color: white;
+                            box-shadow: 0 0 10px black;
+                        }
+                        .operador:active{
+                            background-color: black;
+                        }
+                    .numero{
+                        color: black;
+                        box-shadow: 0 0 5px gray;
+                        background-color: white;
+                    }
+                        .numero:hover{
+                            transform: translateY(-4px);
+                            background-color: #e2e2e2;
+                            box-shadow: 0 0 5px white;
+                        }
+                        .numero:active{
+                            background-color: #cdcdcd;
+                            color: white;
+                        }
+                    .igual{
+                        background-color: #000000;
+                        grid-column: span 2;
+                    }
+                        .igual:active{
+                            background-color: white;
+                            color: black;
+                        }
+
+/*color de infinity Rose*/
+body.infinityRose{
+    background: radial-gradient(circle at center, #ffd6e7, #ff9fc5, #ff69b4);
+}
+
+.infinityRose header{
+    background-color: white;
+    color: #ff69b4;
+    box-shadow: 0 0 20px white;
+}
+.infinityRose .botonesCalculadoras button{
+    background-color: white;
+    color: #ff69b4;
+}
+    .infinityRose .botonesCalculadoras button:hover{
+        background-color: #ff69b4;
+        color: white;
+        box-shadow: 0 0 20px #ff69b4;
+    }
+.infinityRose .container{
+    background-color: #f871a7;
+}
+.infinityRose .container::before{
+    background: conic-gradient(
+        #ff006e,
+        #ff4da6,
+        #ffffff,
+        #ff006e,
+        #ff4da6,
+        #ffffff,
+        #ff006e
+    );
+}
+.infinityRose .container::after{
+    background-color: #fff1f7;
+}
+.infinityRose .headCal p{
+    color: #ff69b4;
+}
+.infinityRose .imgLogoCal{
+    background-image: url(img/hellokitty.jpg);
+    border: 2px solid white;
+}
+.infinityRose .display{
+    background-color: white;
+    border: 2px solid #ff69b4;
+    box-shadow: 0 0 30px #ffd6e7;
+}
+
+.infinityRose #operacion{
+    color: #ff9fc5;
+}
+.infinityRose #resultado{
+    color: #ff69b4;
+}
+.infinityRose .operador{
+    background-color: #ff69b4;
+    box-shadow: 0 0 10px white;
+}
+.infinityRose .operador:hover{
+    background-color: white;
+    color: #ff69b4;
+    box-shadow: 0 0 10px #ff69b4;
+}
+.infinityRose .operador:active{
+    background-color: #ff9fc5;
+    color: white;
+}
+.infinityRose .numero{
+    background-color: #fff1f7;
+    box-shadow: 0 0 10px #ff9fc5;
+    color: #ff69b4;
+}
+.infinityRose .numero:hover{
+    background-color: #ff9fc5;
+    color: white;
+}
+.infinityRose .numero:active{
+    background-color: white;
+    color: #ff69b4;
+}
+
+/*color de infinity Titan*/
+body.infinityTitan{
+    background: radial-gradient( circle at center, #7AB8FF 0%, #4D96FF 45%, #00509D 100%
+    );
+}
+
+.infinityTitan header{
+    background-color: white;
+    color: #00509D;
+    box-shadow: 0 0 20px white;
+}
+.infinityTitan .botonesCalculadoras button{
+    background-color: white;
+    color: #00509D;
+}
+    .infinityTitan .botonesCalculadoras button:hover{
+        background-color: #00509D;
+        color: white;
+        box-shadow: 0 0 20px #00509D;
+    }
+.infinityTitan .container{
+    background-color: #7AB8FF;
+}
+.infinityTitan .container::before{
+    background: conic-gradient(
+        #001F3F,
+        #003566,
+        #00509D,
+        #4D96FF,
+        #7AB8FF,
+        #EAF4FF,
+        #001F3F
+    );
+}
+.infinityTitan .container::after{
+    background-color: white;
+}
+.infinityTitan .headCal p{
+    color: #00509D;
+}
+.infinityTitan .imgLogoCal{
+    background-image: url(img/megamente.webp);
+    border: 2px solid #00509D;
+}
+.infinityTitan .display{
+    background-color: white;
+    border: 2px solid #00509D;
+    box-shadow: 0 0 30px #a9d3ff;
+}
+.infinityTitan #operacion{
+    color: #6188b2;
+}
+.infinityTitan #resultado{
+    color: #00509D;
+}
+.infinityTitan .operador{
+    background-color: #00509D;
+    box-shadow: 0 0 10px #a9d3ff;
+}
+.infinityTitan .operador:hover{
+    background-color: white;
+    color: #00509D;
+    box-shadow: 0 0 10px #00509D;
+}
+.infinityTitan .operador:active{
+    background-color: #a9d3ff;
+    color: white;
+    box-shadow: none;
+}
+.infinityTitan .numero{
+    background-color: white;
+    box-shadow: 0 0 10px #00509D;
+    color: #00509D;
+}
+.infinityTitan .numero:hover{
+    background-color: #a9d3ff;
+    color: white;
+    box-shadow: none;
+}
+.infinityTitan .numero:active{
+    background-color: white;
+    color: #a9d3ff;
+    box-shadow: 0 0 10px #a9d3ff;
+}
+
+@keyframes girar{
+    from{
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to{
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}

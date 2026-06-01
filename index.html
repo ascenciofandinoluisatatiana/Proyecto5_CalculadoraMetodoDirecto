@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Infinity Calculator</title>
+        <link rel="stylesheet" href="style.css">
+</svg>
+        <!--Fuentes-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poller+One&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="contenedorPrincipal">
+            <header>
+                <h1>Infinity Calculator</h1>
+                <div class="botonesCalculadoras">
+                    <button type="button" id="calBasica" onclick="temaClasico()"> Infinity Classic </button>
+                    <button type="button" id="calWomen" onclick="temaRose()"> Infinity Rose </button>
+                    <button type="button" id="calMan" onclick="temaTitan()"> Infinity Titan </button>
+                </div>
+            </header>
+
+            <div class="container">
+                <div class="headCal">
+                    <p>Infinity Classic </p>
+                    <div class="imgLogoCal"></div>
+                </div>
+
+                <div class="calculadora">
+                    <div class="display">
+                        <div id="operacion"></div>
+                        <div id="resultado">0</div>
+                    </div>
+
+                    <div class="botones">
+                        <button type="button" class="operador" id="C"> C </button>
+                        <button type="button" class="operador" id="borrar"> ⌫ </button>
+                        <button type="button" class="operador" id="porcentaje"> % </button>
+                        <button type="button" class="operador"> ÷ </button>
+                        <button type="button" class="numero"> 7 </button>
+                        <button type="button" class="numero"> 8 </button>
+                        <button type="button" class="numero"> 9 </button>
+                        <button type="button" class="operador"> x </button>
+                        <button type="button" class="numero"> 4 </button>
+                        <button type="button" class="numero"> 5 </button>
+                        <button type="button" class="numero"> 6 </button>
+                        <button type="button" class="operador"> - </button>
+                        <button type="button" class="numero"> 1 </button>
+                        <button type="button" class="numero"> 2 </button>
+                        <button type="button" class="numero"> 3 </button>
+                        <button type="button" class="operador"> + </button>
+                        <button type="button" class="numero"> 0 </button>
+                        <button type="button" class="numero"> . </button>
+                        <button type="button" class="operador igual" id="igual"> = </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="scriptCalculadora.js"></script>
+        <script src="scriptColor.js"></script>
+
+    </body>
+</html>
